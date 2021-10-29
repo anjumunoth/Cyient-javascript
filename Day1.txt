@@ -1,0 +1,32 @@
+javascript: 
+client side scripting language - interpreted 
+can run only on browser
+can have syntactical errors and logical errors
+can't compile or run the code
+always embedded as part of html document; cant exist seperately
+always written as part of script tag
+official name -- ECMA script; ES
+
+history of js -- j1, js2,.. js5(late 1990's); 2015 -- java script version 6 ES6, ES2015; 
+
+why javascript?
+-- dynamic website -- dynamic data, animations, user interactions, dynamic menus
+-- events(keyboard events, mouse events) and events handlers
+-- validations of forms
+-- game development
+-- code which can be excuted on client side
+-- Angular or React -- design , test the front end seperately
+
+portability, features, 
+
+limitations in javascript ?
+-- single threaded -- can be an advantage 
+-- memory (limited to memory of the browser)
+-- limited features with respect to network capabilities
+-- limited calability of interacting os
+-- js can be disabled in the browser
+
+where all can js be written
+-- seperate file -- best practice; easy to maintain; seperation of concerns
+-- head section (get executed before the dom can be loaded)
+-- body section (just before the body gets over)

@@ -111,6 +111,7 @@ myFunc2();//200
 //var obj={...obj1};//spread opearator
 
 // default paramaters:
+// Rule -- default params should be always at the last 
 // substr,substring,slice
 function myFunc5(str1,startingPos=0,endingPos=str1.length)
 {
@@ -133,6 +134,34 @@ console.log(result);// autiful;
 
 var result=myFunc5("beautiful",3,-4);
 console.log(result);// ut
+
+var result=myFunc5("beautiful");
+console.log(result);// ut
+
+function myFunc6(p1=100,p2)
+{
+    console.log(p1+p2);
+}
+myFunc6(25);//p1=25; p2=ud
+// python : myFunc6(p2=25);// p2=25; p1=100
+
+
+//InBuilt functions in javascript:
+// Numeric functions
+// InBuilt classes -- Integer, Float, Number, Math
+// floor,ceil,trunc,round
+var i=23.4123;
+var j=23.786;
+var k=-23.4123
+var l=-23.786
+
+/*
+1. Math.fround()
+2. Create a table in word
+10 strings function in js in the given format
+
+*/
+
 
 
 

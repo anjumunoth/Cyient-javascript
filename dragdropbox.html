@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+<style>
+.box{width:300px;}
+#dragsource{float:left;left:25px;}
+#droptarget{float:right;right:25px;}
+ul{margin:0px;padding:0px;width:140px;height:305px;border:2px solid green;text-align:center;}
+ul>li{width:80px;height:30px;border:1px dotted brown;list-style:none;margin:20px; padding:10px;}
+</style>
+</head>
+<body>
+   <p>Sample page</p>
+<div class="box" >
+<ul id="dragsource"> 
+<li id="item1" draggable="true">First Item</li>
+<li id="item2" draggable="true">Second Item</li>
+<li id="item3" draggable="true">Third Item</li>
+<li id="item4" draggable="true">Fourth Item</li>
+</ul>
+<ul id="droptarget"></ul>
+</div>
+<script>
+window.onload=function(){
+var target1=document.getElementById("droptarget");
+
+var list=document.querySelectorAll("#dragsource li");
+for(i=0;i<list.length;i++){
+list[i].draggable=true;
+list[i].ondragstart=function(event){
+var event=event||window.event;
+var dt=event.dataTransfer;
+dt.setData("text", event.target.id);
+dt.effectAllowed="move";
+};}
+
+target1.ondragover=function(event) {
+var event=event||window.event;
+event.preventDefault();
+};
+
+target1.ondrop=function(event) {
+var event=event||window.event;
+var dt=event.dataTransfer;
+event.preventDefault();
+var data = dt.getData("text");
+target1.appendChild(document.getElementById(data));
+};
+};
+</script>
+</body>
+</html>

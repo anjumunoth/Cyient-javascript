@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+</head>
+<body>
+   <p>Sample page</p>
+<p>Drag the bar to change its width:</p> 
+<div style="background: green; width: 60px; height: 20px"> 
+</div>
+<script> var lastX; var lastY;
+var rect = document.querySelector("div"); 
+rect.addEventListener("mousedown", function(event) { 
+if (event.which == 1) { 
+lastX = event.pageX;
+lastY=event.pageY; 
+addEventListener("mousemove", moved); 
+event.preventDefault();  
+} });
+function buttonPressed(event) { 
+if (event.buttons == null) return event.which != 0; 
+else return event.buttons != 0; 
+} 
+function moved(event) { 
+if (!buttonPressed(event)) { 
+removeEventListener("mousemove", moved); 
+} 
+else { 
+var distX = event.pageX - lastX; 
+var distY=event.pageY-lastY;
+var newWidth = Math.max(10, rect.offsetWidth + distX); 
+var newHeight = Math.max(10, rect.offsetHeight + distY);
+rect.style.width = newWidth + "px"; 
+rect.style.height = newHeight + "px"; 
+lastX = event.pageX; 
+lastY = event.pageY;
+} } 
+</script>
+
+</body>
+</html>

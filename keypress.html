@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+</head>
+<body>
+   <p>Sample page</p>
+<p id="para1">This text background turns lime when you hold the L key.</p>
+<script> 
+var para1=document.getElementById('para1');
+addEventListener("keydown", function(event) { 
+if (event.keyCode == 76) 
+para1.style.background = "lime"; 
+}); 
+addEventListener("keyup", function(event) { 
+if (event.keyCode == 76) 
+para1.style.background = ""; 
+}); 
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+</head>
+<body>
+   <p>Sample page</p>
+<p>Focus this Textbox and type something</p>
+Press any Key:<input type="text" id="text1"></input> 
+KeyCode:<input type="text" id="key1"></input>
+
+<script>
+var text1=document.getElementById('text1');
+var key1=document.getElementById('key1'); 
+text1.addEventListener("keydown", function(event) { 
+text1.value="";
+key1.value=event.keyCode; 
+
+}); 
+text1.addEventListener("keyup", function(event) { 
+//text1.value="";
+//alert("key up");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+<style>
+#button {
+width: 186px;
+height: 52px; 
+font-size:1em; 
+color:red;  
+}    
+</style>
+</head>
+<body>
+   <p>Good morning</p>
+<button id="button">Mouse Over Me</button>
+<script>
+var btn=document.getElementById("button")
+if (btn.addEventListener) {
+btn.addEventListener("mouseover", function(event) { 
+btn.style.background = "#00aaff";
+btn.innerHTML="Mouse Over"; });
+btn.addEventListener("mouseout", function(event) { 
+btn.style.background = ""; 
+btn.innerHTML="Mouse Out";});
+} 
+else if (btn.attachEvent) {
+btn.attachEvent("onmouseover", function(event) { 
+btn.style.background = "#00aaff"; 
+btn.innerHTML="Mouse OVer";});
+btn.attachEvent("onmouseout", function(event) { 
+btn.style.background = "";
+btn.innerHTML="Mouse Out"; });
+}
+</script>
+
+</body>
+</html>

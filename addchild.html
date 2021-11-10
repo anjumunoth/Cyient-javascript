@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Sample page</title>
+<style>
+.disc { 
+height: 8px; width: 8px; border-radius: 20px; border:solid red 14px;
+background: blue; position: absolute; 
+}
+</style>
+</head>
+<body>
+   <p>Sample page</p>
+<script> 
+addEventListener("click", function(event) { 
+if (event.which==1){
+var disc = document.createElement("div"); 
+disc.className = "disc"; 
+disc.style.left = (event.pageX - 15) + "px"; 
+//alert(event.pageX);
+disc.style.top = (event.pageY - 15) + "px"; 
+document.body.appendChild(disc); }
+}); 
+</script>
+</body>
+</html>

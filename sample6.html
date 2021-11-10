@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var companyName=prompt("Enter the company name where u are working");
+        alert("Hello "+ companyName);
+    </script>
+    
+</head>
+<body>
+    <h1 id="h1Element"> day 5 examples with events</h1>
+    <input type="button" onclick="changeBackground()" ondblclick="changeFontColour()" value="Change Background" />
+
+    <input type="text" id="txtBox1" placeholder="Enter ur name" onfocus="changeToYellowBg(event)" onblur="changeToDefaultBg(event)"/>
+    <input type="button" value="Get Name" onclick="validateName()" />
+
+    <p id="p1" onmouseover="onMouseOverEventHandler(event)" onmouseout="onMouseOutEventHandler(event)"> Cyient is a leading global engineering, manufacturing, and digital technology solutions company. We are a Design, Build, and Maintain partner for leading organizations worldwide. We enable our customers across industries to apply technologies imaginatively to solve problems that matter and stay ahead of the curve. We are committed to designing tomorrow together with our stakeholders and being a culturally inclusive, socially responsible, and environmentally sustainable organization.</p>
+    <p id="p2" onclick="addBorder(event)">Recognized 7 times in the last decade as leader in R&D Services by Zinnov Consulting</p>
+    <img src="C:\Users\anjum\OneDrive\Desktop\dishes\flower.jpg" id="img1"/>
+    <div style="background-color: red;height: 50px; width:50px;border-radius: 50%;opacity:0.5"></div>
+    <div style="background-color: yellow;height: 50px; width:50px;border-radius: 50%;opacity:0.5"></div>
+    <div style="background-color: green;height: 50px; width:50px;border-radius: 50%;opacity:1"></div>
+
+    <form>
+        <input type="text" placeholder="Enter the first name" onkeypress="keyPressEventHandler(event)"/>
+        <input type="text" placeholder="Enter the mobile number" onkeydown="keyDownEventHandler(event)" />
+        <input type="button" onclick="validateFormDetails()" value="Submit"/>
+    </form>
+    <img id="img11" src="unknown.gif"/>
+    <script src="sample6.js"></script>
+</body>
+</html>

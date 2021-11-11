@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app
+        ng-init="empArr= [{empId:101,empName:'Asha',salary:1001,deptId:'D1'},
+    {empId:102,empName:'Gaurav',salary:2000,deptId:'D1'},
+    {empId:103,empName:'Karan',salary:2000,deptId:'D2'},
+    {empId:104,empName:'Kishan',salary:3000,deptId:'D1'},
+    {empId:105,empName:'Keshav',salary:3500,deptId:'D2'},
+    {empId:106,empName:'Pran',salary:4000,deptId:'D3'},
+    {empId:107,empName:'Saurav',salary:3800,deptId:'D3'}];
+     enableButton=true;disableButton=false;imgUrl='flower.jpg';ctr=1;message='Happy morning';isDigit=false;arr=[10,20,30,40,50];emp={empId:101,empName:'sara'};">
+        <div>
+            <p>Counter :{{ctr}}</p>
+            <p> Increment of Counter:{{(ctr+1)}}</p>
+            <!-- <p>Counter :{{ctr++}}</p> -->
+            <p>{{100+100}}</p>
+            <p>{{true + true}}</p>
+            <p>{{23.4+46.2}}</p>
+            <p>{{"Its" + " a rainy day"}}</p>
+            <p>{{message}}</p>
+            <p>{{message.toUpperCase()}}</p>
+            <p>{{message.slice(0,5)}}</p>
+            <p>{{message.toUpperCase().substr(6)}}</p>
+            <p> IsDigit :{{isDigit}}</p>
+            <p> Array : {{arr}}</p>
+            <p>Array element at 0th position : {{arr[0]}}</p>
+            <p>Not allowed in an expression : conditional statements(if-else, ternary),loops,declaring functions,return
+                statements</p>
+            <p> Modifying an array using inbuilt functions will give wrong output and may throw exceptions</p>
+            <!-- <p> Array insert : {{arr.splice(2,1,55,66)}}</p> -->
+            <p> Array : {{arr}}</p>
+            <p> Employee Details : {{emp}}</p>
+            <p> Emp Id : {{emp.empId}}</p>
+            <p> EmpName : {{emp.empName}}</p>
+            <p> Salary: {{emp.salary}}</p>
+            Ctr : <span ng-bind="ctr"></span>
+            Enter ur name : <input type="text" ng-model="firstName" />
+            <p> Hello {{firstName}}</p>
+            <p> Bye <span ng-bind="firstName"></span></p>
+            <p ng-bind="100+'danny'"></p>
+            <p>ng-bind can be used to display the values of the variables declared in ng-init or the values in ng-model
+                or evaluate an expression and give the result of the expression</p>
+            <img ng-src={{imgUrl}} alt="Image of a flower" />
+
+            <input type="button" value="Check" />
+            <input type="button" value="Disabled button" disabled />
+            disable Button : {{disableButton}}
+            <input type="button" value="Angular Check1" disabled={{disableButton}} />
+            <input type="button" value="Angular Check-Enable" ng-disabled="disableButton" />
+            <input type="button" value="Angular Check-Disable" ng-disabled="enableButton" />
+
+            <br />
+            <p> ng-repeat directive</p>
+            <ul>
+                <li>{{arr[0]}}</li>
+                <li>{{arr[1]}}</li>
+                <li>{{arr[2]}}</li>
+                <li>{{arr[3]}}</li>
+                <li>{{arr[4]}}</li>
+            </ul>
+            <ul>
+                <li ng-repeat="item in arr">{{item}} -- Square :{{item*item}}</li>
+            </ul>
+            <table border="5">
+                <thead>
+                    <tr>
+                        <th>
+                            Employee Id
+                        </th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Dept Id</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="emp in empArr">
+                        <td> {{emp.empId}}</td>
+                        <td>{{emp.empName}}</td>
+                        <td ng-bind="emp.salary"></td>
+                        <td>{{emp.deptId}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+        <p ng-show="false"> 10 is a even number</p>
+        <p> All elements in the array which are divisible by 4</p>
+        <ul>
+            <li ng-repeat="item in arr" ng-show="item%4 ==0">
+                <span >{{item}}</span>    
+            </li>
+        </ul>
+        <p> All the employees whose name starts with K using ng-hide</p>
+        <ul>
+            <li ng-repeat="emp in empArr" ng-hide="!emp.empName.startsWith('K')">
+                {{emp.empName}}
+            </li>
+        </ul>
+
+        
+    </div>
+</body>
+
+</html>

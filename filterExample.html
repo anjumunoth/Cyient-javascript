@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app ng-init="num1=12.4567; num2=2345668.23476789;num3=5.5;name='sara'">
+        <h1> Filter Examples</h1>
+        <p> Number filter -- Display the number in a comma seperated manner and round it upto 3 decimal places</p>
+        <p> Num1 : {{num1}}</p>
+        <p> Num2 : {{num2}}</p>
+        <p> Num1 : {{num1 | number}}</p>
+        <p> Num2 : {{num2 | number}}</p>
+        <p> Num3 : {{num3 | number}}</p><!-- 5.5;  -->
+        <p> Num2 with only 1 digit after the decimal point : {{num2 | number:1}}</p>
+        <p> Num3 : {{num3 | number:3}}</p><!--5.500  -->
+        <p> Num2 as an integer : {{num2 | number:0}}</p>
+        <p> Num3 as an integer : {{num3 | number:0}}</p>
+        <p> 5.3 as an integer : {{5.3 | number:0}}</p>
+
+        <h2>Currency filter</h2>
+        <p> Takes in 2 optional arguments:1. symbol or an identifier; 2: number of digits after the decimal; default : $,number of digits : 2; </p>
+        <p> Num1 : {{num1| currency}}</p>
+        <p> Num1 in rupees : {{num1| currency:'Rs.'}}</p>
+        <p> Num1 in rupees : {{num1| currency:'USD$'}}</p>
+        <p> Num2 in rupees : {{num2| currency:'Rs.':4}}</p>
+        <p> Num2 in rupees - default : {{num2| currency}}</p>
+
+        <p>Name in uppercase :{{"asha" | uppercase}}</p>
+        <p>Name in lowercase :{{"ASHA" | lowercase}}</p>
+        <p>Name in uppercase :{{name | uppercase}}</p>
+        <p>Name in uppercase :{{"asha meHta" | uppercase}}</p>
+        <p>Number in uppercase:{{1234 | uppercase}}</p>
+
+        <p>String with currency filter : {{name | currency}}</p>
+        
+        <h2>Date filter</h2>
+        <p>1000ms since the epoch : {{1000 | date}}</p>
+        <p>1000ms since the epoch : {{1000 | date:'medium'}}</p>
+        <!-- 
+            var myDate=new Date(1000);//1000ms since 1st jan 1970
+            var today=new Date();
+            var someDay=new Date(7,23,2021);// 23rd july 2021
+            var christmas=new Date(2021,11,25);
+
+
+         -->
+        
+    </div>
+</body>
+</html>
+<!-- 
+    Assignments:
+    1. Design a header:
+    2. Display the poster of 4 of ur favourite movies using ng-repeat
+    movieArr=[{moviePoster="Eternals.jpg",movieDirector:"",actors:""}]
+    3. 
+
+-->

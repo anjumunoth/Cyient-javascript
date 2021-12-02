@@ -1,0 +1,169 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BoxExample
+{
+    class Box
+    {
+        int width;
+        int height;
+
+        public Box() { }
+        public Box(int width, int height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+        public Box(Box obj)
+        {
+            this.width = obj.width;
+            this.height = obj.height;
+        }
+        public static Box operator +(Box b1, Box b2)
+        {
+
+            Box box = new Box(b1);
+            box.width += b2.width;
+            box.height += b2.height;
+            return box;
+        }
+        public static Box operator -(Box b1, Box b2)
+        {
+
+            Box box = new Box(0, 0);//without using copy constructor
+            box.width = b1.width - b2.width;
+            box.height = b1.height - b2.height;
+            return box;
+        }
+        public static Box operator +(Box b1, int n)
+        {
+
+            Box box = new Box(b1);
+            box.width += n;
+            box.height += n;
+            return box;
+        }
+        public static bool operator <(Box b1, Box b2)
+        {
+            bool temp = b1.width < b2.width;
+            return temp;
+
+        }
+        public static bool operator >(Box b1, Box b2)
+        {
+            bool temp = b1.width > b2.width;
+            return temp;
+
+        }
+        public static bool operator <=(Box b1, Box b2)
+        {
+            bool temp = b1.width <= b2.width;
+            return temp;
+        }
+        public static bool operator >=(Box b1, Box b2)
+        {
+            bool temp = b1.width >= b2.width;
+            return temp;
+        }
+
+        public static bool operator ==(Box b1, Box b2)
+        {
+
+            bool temp = false;
+            if (b1.width == b2.width && b1.height == b2.height)
+                temp = true;
+            else
+                temp = false;
+
+            return temp;
+        }
+        public static bool operator !=(Box b1, Box b2)
+        {
+
+            bool temp = false;
+            if (b1.width != b2.width || b1.height != b2.height)
+                temp = true;
+            else
+                temp = false;
+
+            return temp;
+        }
+
+        public override string ToString()
+        {
+            return $"Width:{width} Height:{height}";
+        }
+
+    }
+    internal class Program
+    {
+         static void SortBox(Box[] arr) {
+
+            for (int i = 0; i < arr.Length; i++) {
+                for (int j = i + 1; j < arr.Length; j++) {
+                    if (arr[i] > arr[j]) {
+                        Box temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+
+                    }
+                }            
+            }
+         }
+        static void Main(string[] args)
+        {
+            Box b1 = new Box(12, 14);
+            Box b2 = new Box(2, 4);
+            Box b3 = b1 + b2;//14,18
+            Console.WriteLine("Addition of Width and Height of two boxes: " + b3);
+            Box b4 = b1 - b2;//10,10
+            Console.WriteLine("\nSubstraction of Width and Height of two boxes: " + b4);
+            Box b5 = b1 + 20;//32,34
+            Console.WriteLine("\nAdd 20 to both  Width and Height of one box: " + b5);
+            bool res = b1 < b2;//comparision based on width..12<2--false
+            Console.WriteLine("\nb1:" + b1 + "  b2:" + b2);
+            Console.WriteLine("Is b1< b2 :" + res);
+            bool res1 = b1 > b2;
+            Console.WriteLine("Is b1> b2 :" + res1);
+            bool res2 = b1 <= b2;//comparision based on width..12<2--false
+
+            Console.WriteLine("Is b1<= b2 :" + res2);
+            bool res3 = b1 >= b2;
+            Console.WriteLine("Is b1>= b2 :" + res3);
+
+
+            bool res4 = b1 == b2;//false ..comparision based on both width and height
+            Console.WriteLine("Is b1== b2 :" + res4);
+
+            bool res5 = b1 != b2;//false ..comparision based on both width and height
+            Console.WriteLine("Is b1!= b2 :" + res5);
+
+            Box[] arr = new Box[3];
+           
+            for(int i =0; i <arr.Length; i++) {
+                Console.WriteLine("\nEnter the Width");
+                int width = int.Parse(Console.ReadLine());
+                Console.WriteLine("\nEnter the Height");
+                int height = int.Parse(Console.ReadLine());
+                arr[i]=new Box(width,height);
+            }
+            Console.WriteLine("\nArray Before Sorting");
+            for (int i = 0; i < arr.Length; i++) {
+                Console.WriteLine(arr[i] + " ");
+            }
+            Console.WriteLine();
+            SortBox(arr);//define function Which will sort the Arr 
+         
+            Console.WriteLine("\nArray After Sorting");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i] + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
+        }
+    }
+}

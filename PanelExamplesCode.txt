@@ -1,0 +1,44 @@
+<WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="331" Margin="77,44,0,0" VerticalAlignment="Top" Width="649">
+            <Button Width="100" Height="75">Button1</Button>
+            <Button Width="100" Height="75">Button2</Button>
+            <Button Width="100" Height="75">Button3</Button>
+            <Button Width="100" Height="75">Button4</Button>
+            <Button Width="100" Height="75">Button5</Button>
+            <Button Width="100" Height="75">Button6</Button>
+        </WrapPanel>
+        <StackPanel Height="419" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="388,0,10,0">
+            <Button Width="100" Height="75" VerticalAlignment="Top">Stack Button1</Button>
+            <Button Width="100" Height="75" VerticalAlignment="Bottom">Stack Button2</Button>
+            <Button Width="100" Height="75" VerticalAlignment="Center">Stack Button3</Button>
+            <Button Width="100" Height="75" VerticalAlignment="Top">Stack Button4</Button>
+            <Button Width="100" Height="69" VerticalAlignment="Center" Background="Aqua" >Stack Button5</Button>
+            <Button Width="100" Height="75" VerticalAlignment="Center" Background="Blue">Stack Button6</Button>
+
+        </StackPanel>
+
+
+
+<table>
+	<tr>
+		<td>101</td>
+		<td>sara</td>
+	</tr>
+	<tr>
+		<td colspan=2>Total</td>
+	</tr>
+</table>
+
+Grid height=500
+One row
+Row height =500
+
+Grid height=600
+Two row
+Each Row height =300
+
+Grid width=1000
+5 columns
+width of each column =200
+
+
+	

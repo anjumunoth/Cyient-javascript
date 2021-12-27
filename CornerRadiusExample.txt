@@ -1,0 +1,22 @@
+<Window x:Class="PanelExamples2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PanelExamples2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid Background="pink" Width="450" Height="450" >
+        <Border BorderBrush="Aqua" BorderThickness="5" CornerRadius="10" Padding="2"></Border>
+            <Button Content="Register" Foreground="#FFF131E0" Background="#FFF1BBBB" Width="200" Height="97" FontFamily="Rockwell Extra Bold" FontSize="24" BorderBrush="Blue" BorderThickness="5"  >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"></Setter>
+                </Style>
+            </Button.Resources>
+            </Button>
+        
+    </Grid>
+
+</Window>

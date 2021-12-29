@@ -1,0 +1,165 @@
+    <TextBlock>Question 1.</TextBlock>
+        <TextBlock >How many colours are there in the rainbow</TextBlock>
+        <RadioButton Content="7" GroupName="1" x:Name="chkBoxQ1opt1" Click="RadioButton_Click"/>
+        <RadioButton Content="5" GroupName="1"  x:Name="chkBoxQ1opt2"/>
+        <RadioButton Content="6" GroupName="1"  x:Name="chkBoxQ1opt3"/>
+        <RadioButton Content="8" GroupName="1" IsChecked="True"  x:Name="chkBoxQ1opt4"/>
+
+        <TextBlock>Question 2.</TextBlock>
+        <TextBlock >How many planets are there in the milky way galaxy</TextBlock>
+        <RadioButton Content="9" GroupName="2" IsChecked="true"  x:Name="chkBoxQ2opt1"/>
+        <RadioButton Content="5" GroupName="2" x:Name="chkBoxQ2opt2"/>
+        <RadioButton Content="6" GroupName="2" x:Name="chkBoxQ2opt3"/>
+        <RadioButton Content="8" GroupName="2" x:Name="chkBoxQ2opt4"/>
+        <Button x:Name="btnGetScore" Content="Get Score" Click="btnGetScore_Click"></Button>
+        <Button x:Name="btnClear" Content="Clear" Click="Button_Click" ></Button>
+
+        <Label>Your favourite holiday destination</Label>
+        <CheckBox Name="chkCheckAll" Checked="chkCheckAll_Checked" Unchecked="chkCheckAll_Checked">Select All</CheckBox>
+        <CheckBox Name="chkBoxAustralia" Margin="50,0,0,0">Australia</CheckBox>
+        <CheckBox Name="chkBoxMaldives" Margin="50,0,0,0">Maldives</CheckBox>
+        <CheckBox Name="chkBoxFrance" Margin="50,0,0,0">France</CheckBox>
+        <Button Content="Get Destinations" Click="Button_Click_1"/>
+        <TextBlock x:Name="txtSelectedDestination"></TextBlock>
+
+        <Calendar SelectionMode="MultipleRange" x:Name="calendarTravelDate">
+            <Calendar.BindingGroup>
+                <BindingGroup/>
+            </Calendar.BindingGroup>
+            <Calendar.BlackoutDates>
+                <CalendarDateRange Start="12.4.2021" End="12.5.2021"></CalendarDateRange>
+                <CalendarDateRange End="2022-01-02" Start="2022-01-01"/>
+                <CalendarDateRange Start="12.11.2021" End="12.12.2021"></CalendarDateRange>
+                <CalendarDateRange Start="12.18.2021" End="12.19.2021"></CalendarDateRange>
+                <CalendarDateRange Start="12.25.2021" End="12.26.2021"></CalendarDateRange>
+
+            </Calendar.BlackoutDates>
+        </Calendar>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace ControlExamples2
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        string[] correctAnswers = new string[] { "1", "1" };
+        public MainWindow()
+        {
+            InitializeComponent();
+            calendarTravelDate.DisplayDate = new DateTime(2021,12,01);
+            calendarTravelDate.SelectedDate = new DateTime(2022, 1, 06);
+            calendarTravelDate.BlackoutDates.AddDatesInPast();
+            //calendarTravelDate.BlackoutDates.Add(new CalendarDateRange(DateTime.Today.AddYears(1)));
+            calendarTravelDate.BlackoutDates.Add(new CalendarDateRange(DateTime.Today.AddYears(1),DateTime.Today.AddYears(10)));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGetScore_Click(object sender, RoutedEventArgs e)
+        {
+            string[] usersAnswers = new string[2];
+            if (chkBoxQ1opt1.IsChecked == true)
+            {
+                usersAnswers[0] = "1";
+            }
+            if (chkBoxQ1opt2.IsChecked == true)
+            {
+                usersAnswers[0] = "2";
+            }
+            if (chkBoxQ1opt3.IsChecked == true)
+            {
+                usersAnswers[0] = "3";
+            }
+            if (chkBoxQ1opt4.IsChecked == true)
+            {
+                usersAnswers[0] = "4";
+            }
+            if (chkBoxQ2opt1.IsChecked == true)
+            {
+                usersAnswers[1] = "1";
+            }
+            if (chkBoxQ2opt2.IsChecked == true)
+            {
+                usersAnswers[1] = "2";
+            }
+            if (chkBoxQ2opt2.IsChecked == true)
+            {
+                usersAnswers[1] = "3";
+            }
+            if (chkBoxQ2opt3.IsChecked == true)
+            {
+                usersAnswers[1] = "4";
+            }
+            int score = 0;
+            for (int i = 0; i < correctAnswers.Length; i++)
+            {
+                if (usersAnswers[i] == correctAnswers[i])
+                {
+                    score++;
+                }
+            }
+            MessageBox.Show("Score : " + score);
+        }
+
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(e.Source.ToString());
+            MessageBox.Show(e.OriginalSource.ToString());
+            MessageBox.Show(sender.ToString());
+        }
+
+        private void chkCheckAll_Checked(object sender, RoutedEventArgs e)
+        {
+            bool newVal = (chkCheckAll.IsChecked == true);
+            chkBoxAustralia.IsChecked = newVal;
+            chkBoxFrance.IsChecked = newVal;
+            chkBoxMaldives.IsChecked = newVal;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            List<string> selectedDestinations = new List<string>();
+            if (chkBoxMaldives.IsChecked == true)
+                selectedDestinations.Add("Maldives");
+
+            if (chkBoxFrance.IsChecked == true)
+                selectedDestinations.Add("France");
+            if (chkBoxAustralia.IsChecked == true)
+                selectedDestinations.Add("Australia");
+            string str = "";
+            for(int i=0;i<selectedDestinations.Count;i++)
+            {
+                str += selectedDestinations[i] + ",";
+            }
+
+            txtSelectedDestination.Text = " U selected " + str;
+        }
+
+        private void calendarBirthday_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            txtBirthday.Text=calendarBirthday.SelectedDate.ToString();
+        }
+    }
+}
+
+    
